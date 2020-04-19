@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Router, navigate } from '@reach/router';
+import { Router } from '@reach/router';
 
 import config from './config';
 import { fetcher } from './api';
