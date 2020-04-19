@@ -15,12 +15,18 @@ router(app);
 if(process.env.NODE_ENV === 'production') {
     const path = require('path');
     // serve react
+    console.log('serve static react: ', path.join(__dirname, 'client', 'build'));
     app.use(express.static(path.join(__dirname, 'client', 'build')));
     app.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+        try {
+            console.log('serve react route');
+            res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); 
+        } catch (err) {
+            console.log(err)
+        }
     });
 }
 
 app.listen(PORT, () => console.log('Server running on port:', PORT));
-console.log('Env:', process.env.NODE_ENV);
+console.log('Env:', process.env);
 console.log('Client Url:', config.client)
