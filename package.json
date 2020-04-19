@@ -10,7 +10,7 @@
     "migrate:local": "yarn migrate mongodb://localhost:auth ",
     "migrate:prod": "yarn migrate mongodb+srv://<user>:<password>@mood-cluster-pixme.mongodb.net/test",
     "start:migrate": "yarn migrate up && yarn start",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build && cd .."
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
