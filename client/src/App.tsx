@@ -60,8 +60,6 @@ function App() {
           loadConfig,
           loading
         }}>
-          <header className='App-header'>
-          </header>
           <section>
             <ToastProvider>
                 <Router>
