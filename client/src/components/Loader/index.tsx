@@ -58,7 +58,7 @@ export const Loader: FunctionComponent<LoaderProps> = ({
         !loading && setShow(false);
     }
 
-    const animation = !loading ? 'fadeOut 2s ease-in-out' : 'fadeIn 0s' //`${loading ? 'fadeIn' : 'fadeOut'} 2s ease-in-out`;
+    const animation = !loading ? 'fadeOut 2s ease-in-out' : 'fadeIn 0s';
 
     return show
         ? ( 

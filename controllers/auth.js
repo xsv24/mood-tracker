@@ -4,7 +4,7 @@ const User = require('../models/user');
 function createToken(user) {
     return jwt.encode(
         { sub: user.id, iat: new Date().getTime() }, 
-        env.process.SECRET
+        process.env.SECRET
     );
 }
 
@@ -13,7 +13,7 @@ exports.signUp = function(req, res, next) {
     const password = req.body.password;
 
     if(!email || !password) {
-        return res.status(400).send({ error: 'Must provide Email & Password' });
+        return res.status(422).send({ error: 'Must provide Email & Password' });
     }
 
     User.findOne({ email: email }, function(err, user) {

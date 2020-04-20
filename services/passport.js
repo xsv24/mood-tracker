@@ -72,7 +72,7 @@ exports.AuthSignIn = function (req, res, next) {
             if(info.message === 'No auth token' || info.message === 'Missing credentials') {
                 info = { error: info.message };
             }
-            return res.status(401).send(info); 
+            return res.status(422).send(info); 
         }
         
         req.user = user;
