@@ -1,5 +1,6 @@
 import React from 'react';
-import { classes } from '../utils';
+import { classes } from '../../utils';
+import './chip.scss';
 
 export const Chip = ({
     children,

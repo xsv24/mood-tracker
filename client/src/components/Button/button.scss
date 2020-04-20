@@ -1,0 +1,79 @@
+@import "../../styles/colors.scss";
+@import "../../styles/shared.scss";
+
+button {
+    min-height: 2.5rem;
+    padding: 5px 10px;
+    margin-right: 0.4rem;
+    border-radius: 0.4em;
+
+    text-transform: uppercase;
+    
+    font-weight: 600;
+    font-size: $font-size;
+    color: $white;
+    opacity: 1;
+    transition: opacity $anim;
+
+    &:hover {
+        box-shadow: $box-shad;
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    &.primary {
+        background-color: $primary;
+    }
+
+    &.secondary {
+        background-color: $secondary;
+    }
+
+    &.danger {
+        background-color: $danger;
+    }
+
+    &.warn {
+        background-color: $warn;
+    }
+
+    &.link {
+        background: transparent;
+        border: none;
+    }
+
+    &.outline {
+        &.primary {
+            border: 1px solid $primary;
+            background-color: transparent;
+            color: $primary;
+        }
+    
+        &.secondary {
+            border: 1px solid $secondary;
+            background-color: transparent;
+            color: $secondary;
+        }
+    
+        &.danger {
+            border: 1px solid $danger;
+            background-color: transparent;
+            color: $danger;
+        }
+    
+        &.warn {
+            border: 1px solid $warn;
+            background-color: transparent;
+            color: $warn;
+        }
+    
+        &.link {
+            border: 1px solid $warn;
+            background: transparent;
+            color: $link;
+        }
+    }
+}   

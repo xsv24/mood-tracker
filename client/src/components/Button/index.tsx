@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from '@reach/router';
+import { classes } from '../../utils';
+import Row from '../Row';
+import './button.scss';
 
-import Row from './Row';
-
-import { classes } from '../utils';
 
 type ButtonProps = {
     type?: "button" | "submit" | "reset" | undefined,

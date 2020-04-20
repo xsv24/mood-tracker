@@ -58,7 +58,7 @@ export const HistoryHeader: FunctionComponent<HistoryHeaderPropsType> = ({
 };
 
 const History: FunctionComponent<RouteComponentProps> = () => {
-    const { moods } = useContext(ConfigContext);
+    const { moods, configLoading } = useContext(ConfigContext);
 
     const [ entries, loading ] = useFetch({
         url: `${config.api}/entry`,
@@ -68,7 +68,7 @@ const History: FunctionComponent<RouteComponentProps> = () => {
     });
 
     return (
-        <Loader loading={loading}>
+        <Loader loading={loading || configLoading}>
             <Container main>
                 <Container>
                     <HistoryHeader moods={moods} entries={entries} />

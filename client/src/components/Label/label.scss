@@ -1,0 +1,13 @@
+@import "../../styles/colors.scss";
+
+label {
+    &.primary { color: $primary;  }
+       
+    &.secondary { color: $secondary;  }
+       
+    &.danger { color: $danger;  }
+       
+    &.warn { color: $warn;  }
+       
+    &.link { color: $link;  }
+}

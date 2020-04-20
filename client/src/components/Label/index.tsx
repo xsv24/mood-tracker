@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { classes } from '../utils';
+import { classes } from '../../utils';
+import './label.scss';
 
 type LabelProps = {
     for?: string,

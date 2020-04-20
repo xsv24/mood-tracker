@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 
-import { classes } from '../utils';
-import { IdNameType } from '../contexts/ConfigContext';
-import Row from '../components/Row';
+import { classes } from '../../utils';
+import { IdNameType } from '../../contexts/ConfigContext';
+import Row from '../Row';
+import './mood.scss';
 
 export type MoodPropsType = {
     _id: number,

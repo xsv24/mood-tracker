@@ -26,7 +26,7 @@ const useFetch = ({
     const [ res, setRes ] = useState<object>(defaultValue);
     const [ loading, setLoading ] = useState<boolean>(false);
 
-    function load(endPoint?: string, body?: object) : Promise<any> {
+    function load(endPoint?: string, body?: object, success?: string) : Promise<any> {
         if(loading) return Promise.resolve();
 
         setLoading(true);
@@ -39,7 +39,7 @@ const useFetch = ({
             .catch(err => {
                 defaultValue.error = err;
                 setRes(defaultValue);
-                return err;
+                throw err;
             })
             .finally(() => setLoading(false));
     }

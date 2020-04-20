@@ -1,0 +1,27 @@
+@import "../../styles/colors.scss";
+@import "../../styles/shared.scss";
+
+input, textarea {
+    min-height: 3rem;
+    border-radius: 0;
+    margin: 0.5rem 0;
+    border: none;
+    padding: 0 0.5rem;
+    min-width: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    background-color: #f2f2f2;
+
+    font-size: $font-size;
+
+    &::placeholder {
+        color: #bfbfbf;
+    }
+
+    &.danger {
+        border-bottom: 1px solid $danger;
+    }
+}
+
+textarea {
+    padding: 0.5rem;
+}

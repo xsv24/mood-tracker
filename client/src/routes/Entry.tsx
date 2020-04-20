@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useState, FormEvent, useContext } from 'react';
+import React, { FunctionComponent, useState, useContext } from 'react';
 import { RouteComponentProps, useNavigate } from '@reach/router';
+import { useToasts } from 'react-toast-notifications';
 
 import { fetcher } from '../api';
 import config from '../config';
@@ -10,27 +11,23 @@ import Moods from '../components/Mood';
 import Emotions from '../components/Emotions';
 import Button from '../components/Button';
 import Container from '../components/Container';
+import Form from '../components/Form';
 import Loading from '../components/Loader';
-
-interface EntryProps extends RouteComponentProps {
-    user: string
-}
 
 // I would usually use a library such as Formik or create my own form library to handle validation and submission
 // For the case of this project I have just done it manually
 
-const Entry: FunctionComponent<EntryProps> = () => {
+const Entry: FunctionComponent<RouteComponentProps> = () => {
     const navigate = useNavigate();
-    const { moods, emotions } = useContext(ConfigContext);
+    const { addToast } = useToasts();
+    const { moods, emotions, configLoading } = useContext(ConfigContext);
 
     const [ mood, setMood ] = useState(4);
     const [ loading, setLoading ] = useState(false);
     const [ comments, setComments ] = useState('');
     const [ emotionOpts, { toggle, selected } ] = useSelector(emotions);
 
-    function onSubmit(e: FormEvent) {
-        e.preventDefault();
-
+    function onSubmit() {
         setLoading(true);
 
         fetcher(`${config.api}/entry`, 'POST', {
@@ -39,20 +36,19 @@ const Entry: FunctionComponent<EntryProps> = () => {
             comments: comments.trim()
         })
             .then((res) => {
-                console.log(res)
-                 navigate('/')
+                addToast('Entry Created', { appearance: 'success', autoDismiss: true });
+                navigate('/')
             })
-            .catch(() => alert('An error processing a request'))
+            .catch((err) => addToast(err, { appearance: 'error', autoDismiss: true }))
             .finally(() => setLoading(false))
     }
-
-
+    
     return (
         <Container main>
-            <Loading loading={loading} />
+            <Loading loading={loading || configLoading} />
             <h2>Mood</h2>
 
-            <form onSubmit={onSubmit}> 
+            <Form onSubmit={onSubmit}> 
                 <Container>
                     <Moods moods={moods} setMood={setMood} selected={mood} />
                 </Container>
@@ -72,7 +68,7 @@ const Entry: FunctionComponent<EntryProps> = () => {
                 <Button type='submit' disabled={!selected.length}>
                     Save
                 </Button>
-            </form>
+            </Form>
             
         </Container>
     );

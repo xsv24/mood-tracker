@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
-import Row from './Row';
-import Chip from './Chip';
-import Container from './Container';
-import EntryDate from './Date';
-import { Mood, MoodPropsType } from './Mood';
+import Row from '../Row';
+import Chip from '../Chip';
+import Container from '../Container';
+import EntryDate from '../Date';
+import { Mood, MoodPropsType } from '../Mood';
+import './entry-log.scss';
 
 export type Emotion = {
     _id: number,

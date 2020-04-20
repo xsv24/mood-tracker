@@ -11,12 +11,14 @@ export interface MoodType extends IdNameType {
 
 export type ConfigType = {
     moods: MoodType[],
-    emotions: IdNameType[]
+    emotions: IdNameType[],
+    configLoading: boolean
 };
 
 const ConfigContext = React.createContext<ConfigType>({
     moods: [],
-    emotions: []
+    emotions: [],
+    configLoading: true
 });
 
 export default ConfigContext;

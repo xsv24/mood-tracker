@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Router } from '@reach/router';
+import { ToastProvider } from 'react-toast-notifications'; 
 
 import config from './config';
 import { fetcher } from './api';
@@ -10,10 +11,9 @@ import History from './routes/History';
 import useFetch from './hooks/useFetch';
 import UserContext, { UserType } from './contexts/UserContext';
 
-import './styles/App.scss';
+import './styles/app.scss';
 
 import ConfigContext from './contexts/ConfigContext';
-import Loader from './components/Loader';
 import useMount from './hooks/useMount';
 
 function App() {
@@ -54,17 +54,20 @@ function App() {
         setUser: updateUser,
         ...user
       }}>
-        <ConfigContext.Provider value={appConfig}>
+        <ConfigContext.Provider value={{
+          ...appConfig,
+          loading
+        }}>
           <header className='App-header'>
           </header>
           <section>
-            <Loader loading={loading}>
-              <Router>
-                  <Auth path='/signin' />
-                  <History path='/' />
-                  <Entry user={user.user} path='entry' />
-              </Router>
-            </Loader>
+            <ToastProvider>
+                <Router>
+                    <Auth path='/signin' />
+                    <History path='/' />
+                    <Entry path='entry' />
+                </Router>
+            </ToastProvider>
           </section>
         </ConfigContext.Provider>
       </UserContext.Provider>

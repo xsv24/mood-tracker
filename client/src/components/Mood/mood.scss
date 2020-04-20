@@ -1,0 +1,20 @@
+@import "../../styles/shared.scss";
+
+.mood {
+    margin: 10px;
+    border-radius: 100%;
+    width: 74px;
+    height: 74px;
+    opacity: 0.4;
+    transition: opacity $anim;
+
+    &.selected {
+        opacity: 1;
+        box-shadow: $box-shad;
+    }
+
+    img {
+        width: inherit;
+        height: inherit;
+    }
+}

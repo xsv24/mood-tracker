@@ -1,0 +1,17 @@
+.calendar-bg {
+    $size: 44px;
+    background-image: url('/images/calendar.svg');
+    background-repeat: no-repeat;
+    min-height: $size;
+    width: $size;
+    background-position: left center;
+    background-size: cover;
+    text-align: center;
+    font-size: 0.8em;
+
+    & > div {
+        min-height: 100%;
+        padding-top: ($size / 3.5);
+        font-size: ($size /  2);
+    }
+}

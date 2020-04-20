@@ -19,9 +19,11 @@ export const fetcher = (url: string, method: 'POST' | 'GET' | 'PATCH' | 'PUT', b
             navigate('/signin');
         }
 
-        return res.status <= 400 
-            ? res.json() 
-            : { error: res.statusText, status: res.status }
+        try {
+            return res.json();
+        } catch {
+            return  { error: res.statusText, status: res.status };
+        }
     })
     .then(res => {
         if(res.error) {

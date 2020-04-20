@@ -1,0 +1,46 @@
+@import "../../styles/colors.scss";
+@import "../../styles/shared.scss";
+
+.chip {
+    border-radius: 30px;
+    border: none;
+    padding: 4px 8px;
+    font-weight: 400;
+    background-color: #e0e0e0;
+    min-height: 1.5rem;
+    height: 1.5rem;
+    font-size: $font-size - 0.2rem;
+    color: $black;
+    text-transform: capitalize;
+    transition: color $anim;
+    user-select: none;
+    cursor: pointer;
+
+    &.selected {
+        background-color: #b5b0b0;
+        &:hover, &:focus, &:active {
+            opacity: 0.8;
+            outline: none;
+        }
+
+        img {
+            transform: scaleY(1);
+            margin-right: 5px;
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    img {
+        transform: scaleY(0);
+        transition: width $anim, margin-right $anim, transform 0.2s ease-in-out;
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+    }
+
+    &:hover, &:focus, &:active {
+        outline: none;
+        color: #000000;
+    }
+}
