@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "PORT=3001 nodemon app --ignore client",
+    "start": "NODE_ENV=development nodemon app --ignore client",
     "start:prod": "NODE_ENV=production node app.js",
-    "migrate":"./node_modules/.bin/migrate -d ",
+    "migrate": "./node_modules/.bin/migrate -d ",
     "migrate:local": "yarn migrate mongodb://localhost:auth ",
     "migrate:prod": "yarn migrate mongodb+srv://<user>:<password>@mood-cluster-pixme.mongodb.net/test",
     "start:migrate": "yarn migrate up && yarn start",

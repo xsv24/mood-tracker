@@ -1,12 +1,10 @@
 const jwt = require('jwt-simple');
-
-const config = require('../config');
 const User = require('../models/user');
 
 function createToken(user) {
     return jwt.encode(
         { sub: user.id, iat: new Date().getTime() }, 
-        config.secret
+        env.process.SECRET
     );
 }
 
