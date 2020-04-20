@@ -1,9 +1,17 @@
+if(process.env.NODE_ENV !== 'production') {
+    const path = require('path'); 
+    
+    require('dotenv').config({ 
+        path: path.join(__dirname, `.env.${process.env.NODE_ENV}`)
+    });
+}
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const router = require('./routes');
 require('./services/mongoose');
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 80
 
 const app = express();
 
