@@ -11,22 +11,23 @@ brew services start mongodb-community@4.2
 ## Install dependencies
 
 ```bash
-cd api && yarn install && cd .. && cd client && yarn install
+cd api && yarn install && cd client && yarn install
 ```
 
 OR 
 
 ```
-cd api && npm install && cd .. && cd client && npm install
+cd api && npm install && cd client && npm install
 ```
 
 ## Start App
 
 ```bash
-cd api && yarn start && cd .. && cd client && yarn start
+cd api && yarn start && cd client && yarn start
 ```
 
 OR 
 
+```bash
+cd api && npm start && cd client && npm start
 ```
-cd api && npm start && cd .. && cd client && npm start
