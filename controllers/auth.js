@@ -30,14 +30,14 @@ exports.signUp = function(req, res, next) {
             password
         });
 
-        createdUser.save((err) => {
+        createdUser.save((err, validUser) => {
             if(err) {
                 return next(err);
             }
             
             res.json({
-                user: { email: user.email }, 
-                token: createToken(createdUser) 
+                user: { email: validUser.email }, 
+                token: createToken(validUser) 
             });
         });
 
