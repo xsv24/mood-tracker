@@ -40,6 +40,7 @@ function App() {
 
   function updateUser(updatedUser) : void {
     if(updatedUser.token) {
+      loadConfig();
       localStorage.setItem('token', updatedUser.token); 
     }
 
@@ -56,6 +57,7 @@ function App() {
       }}>
         <ConfigContext.Provider value={{
           ...appConfig,
+          loadConfig,
           loading
         }}>
           <header className='App-header'>
